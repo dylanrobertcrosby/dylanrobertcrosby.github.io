@@ -58,6 +58,14 @@
         // Set the source attribute of the image element to a random image
         zoomImage.src = getRandomImage();
 
+        let loaded = false;
+
+        // Set a listener for the image load event
+        zoomImage.addEventListener('load', function() {
+            // Change the border color of the image
+            loaded = true;
+        });
+
         function zoom() {
             if (scaleValue < 1.5 & grow){
                 scaleValue += 0.0025;
@@ -90,7 +98,9 @@
                 p.style.color = getRandomColor();
             });
 
-            zoomImage.style.border = `5px solid ${getRandomColor()}`;
+            if (loaded) {
+                zoomImage.style.border = `5px solid ${getRandomColor()}`;
+            }
         }
 
         // Call the zoomIn function every 1 millisecond

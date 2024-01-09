@@ -2,10 +2,103 @@
 <html>
 <head>
   <title>Dylan Crosby</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/x-icon" href="IMG_0264.jpg">
+  <link rel="stylesheet" href="styles.css">
 </head>
 
+<header>
+        <p>D</p>
+        <p>Y</p>
+        <p>L</p>
+        <p>A</p>
+        <p>N</p>
+        <p>C</p>
+        <p>R</p>
+        <p>O</p>
+        <p>S</p>
+        <p>B</p>
+        <p>Y</p>
+        <p>.</p>
+        <p>C</p>
+        <p>O</p>
+        <p>M</p>
+
+</header>
+
 <body>
-    <img src="IMG_9583.JPG">
+    <img id="image">
+
+    <script>
+        // Array of image sources
+        const imageSources = [
+            'IMG_0264.jpg',
+            'IMG_0645.jpg',
+            'IMG_9425.jpg',
+            'IMG_9480.jpg',
+            'IMG_9583.jpg'
+            // Add more image sources as needed
+        ];
+
+        // Function to randomly select an image from the array
+        function getRandomImage() {
+            const randomIndex = Math.floor(Math.random() * imageSources.length);
+            return imageSources[randomIndex];
+        }
+
+
+        let scaleValue = 1.0;
+        let grow = true;
+        const zoomImage = document.getElementById('image');
+
+
+        // Get all <p> elements
+        const ps = document.querySelectorAll('p');
+
+        // Set the source attribute of the image element to a random image
+        zoomImage.src = getRandomImage();
+
+        function zoom() {
+            if (scaleValue < 1.5 & grow){
+                scaleValue += 0.0025;
+            } else if (grow){
+                grow = false
+                //scaleValue -= 0.001;
+            }
+            else if (scaleValue > 1 && !grow) {
+                scaleValue -= 0.0025;
+            } else {
+                grow = true
+            }
+            zoomImage.style.transform = `scale(${scaleValue})`;
+        }
+
+        // Function to generate a random color
+        function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+
+        function changeColors() {
+            // Change the color of each <p> element
+            ps.forEach((p) => {
+                p.style.color = getRandomColor();
+            });
+
+            zoomImage.style.border = `5px solid ${getRandomColor()}`;
+        }
+
+        // Call the zoomIn function every 1 millisecond
+        setInterval(zoom, 1);
+        setInterval(changeColors, 100);
+
+
+
+    </script>
 </body>
 </html>

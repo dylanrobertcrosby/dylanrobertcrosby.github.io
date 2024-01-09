@@ -32,12 +32,51 @@
     <script>
         // Array of image sources
         const imageSources = [
-            'IMG_0264.jpg',
+            /*'IMG_0264.jpg',
             'IMG_0645.jpg',
             'IMG_9425.jpg',
             'IMG_9480.jpg',
             'IMG_9583.jpg'
-            // Add more image sources as needed
+            // Add more image sources as needed*/
+            'IMG_9583.jpg',
+            'IMG_7208.JPG',
+            'IMG_0012.jpg',
+            'IMG_8842.JPG',
+            'IMG_9989.JPG',
+            'IMG_9425.jpg',
+            'IMG_0507.JPG',
+            'IMG_9480.jpg',
+            '0977EE6A-683F-449B-BE4E-B5CA93CF6F66-21470-0000141CBFEA8396.jpg',
+            'IMG_8205.JPG',
+            'IMG_1585.JPG',
+            'IMG_8012.JPG',
+            '85CA2AC4-1650-41CF-913D-A25027EAF285-14203-00000255F3A1DC62.jpg',
+            '70138820-41AF-493C-871A-0C06ED6B8DA6-28595-000004DE1B7D1231.jpg',
+            '183110CD-658E-4F2A-8CA2-9AE129A0C3FF-6320-000004FA26AD7E0E.jpg',
+            'IMG_0264.jpg',
+            '19D803AB-BB9D-4749-AA30-8F70623C365E-74460-00001BC776B47C3F.jpg',
+            'IMG_8185.jpg',
+            'IMG_0645.jpg',
+            'IMG_1759.JPG',
+            'IMG_9701.JPG',
+            'IMG_6785.JPG',
+            'IMG_7840.JPG',
+            'IMG_9514.JPG',
+            'IMG_1762.jpg',
+            'IMG_0455.jpg',
+            'IMG_7070.JPG',
+            'IMG_0092.JPG',
+            'IMG_7674.JPG',
+            'IMG_1199.JPG',
+            'IMG_1101.JPG',
+            'IMG_9830.JPG',
+            'IMG_8535.JPG',
+            'IMG_0544.JPG',
+            'IMG_1506.JPG',
+            'IMG_7774.JPG',
+            'IMG_1728.jpg',
+            'IMG_7749.JPG',
+            'IMG_9799.JPG'
         ];
 
         // Function to randomly select an image from the array
@@ -70,12 +109,14 @@
             if (scaleValue < 1.5 & grow){
                 scaleValue += 0.0025;
             } else if (grow){
+                //zoomImage.src = getRandomImage();
                 grow = false
                 //scaleValue -= 0.001;
             }
             else if (scaleValue > 1 && !grow) {
                 scaleValue -= 0.0025;
             } else {
+                //zoomImage.src = getRandomImage();
                 grow = true
             }
             zoomImage.style.transform = `scale(${scaleValue})`;
